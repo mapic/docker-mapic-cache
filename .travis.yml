@@ -1,0 +1,8 @@
+language: generic
+services:
+  - docker
+install:
+  - docker build -t mapic/cache . > /dev/null
+script:
+  - docker run -d --name cache mapic/cache
+
