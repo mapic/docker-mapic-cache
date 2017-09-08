@@ -6,10 +6,12 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package.json .
 
-RUN npm install
+# copy entrypoint
+COPY mapic-entrypoint.sh .
 
 # Bundle app source
 COPY . .
 
 EXPOSE 3004
-CMD [ "npm", "start" ] #todo: forever
+
+CMD [ "bash", "mapic-entrypoint.sh" ]
